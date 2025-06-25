@@ -1,11 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  retries: 1,
+  retries: 0,
   reporter: 'html',
 
   use: {
-    baseURL: 'https://automationintesting.online/',
+    baseURL: 'http://localhost:3003',
     trace: 'on-first-retry',
   },
 

@@ -2,6 +2,7 @@ import { test as base } from '@playwright/test';
 
 export type TestOptions = {
     baseURL: string;
+    homePageNav: string;
     roomsPageNav: string;
     bookingPageNav: string;
     locationPageNav: string;
@@ -9,6 +10,11 @@ export type TestOptions = {
 }
 
 export const test = base.extend<TestOptions>({
+
+    homePageNav: async ({ page }, use) => {
+        await page.goto('/');
+        await use('');
+    },
     roomsPageNav: async ({ page }, use) => {
         await page.goto('/');
         await page.locator(".navbar").getByRole('link', { name: 'Rooms' }).click();
